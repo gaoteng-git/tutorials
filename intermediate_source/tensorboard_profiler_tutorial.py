@@ -167,14 +167,14 @@ with torch.profiler.profile(
 #
 # This overview shows a high-level summary of performance.
 #
-# The ``"Step Time Breakdown"`` break the time spent on each step into multiple categories.
+# The "Step Time Breakdown" break the time spent on each step into multiple categories.
 # In this example, you can see the ``"DataLoader"`` costs a lot of time.
 #
-# The bottom ``"Performance Recommendation"`` leverages the profiling result
+# The bottom "Performance Recommendation" leverages the profiling result
 # to automatically highlight likely bottlenecks,
 # and gives you actionable optimization suggestions.
 #
-# You can change the view page in left ``"Views"`` dropdown list.
+# You can change the view page in left "Views" dropdown list.
 #
 # .. image:: ../../_static/img/profiler_views_list.png
 #    :alt:
@@ -214,7 +214,7 @@ with torch.profiler.profile(
 #
 
 ######################################################################
-# Then let’s choose the just profiled run in left ``"Runs"`` dropdown list.
+# Then let’s choose the just profiled run in left "Runs" dropdown list.
 #
 # .. image:: ../../_static/img/profiler_overview2.png
 #    :scale: 25 %
