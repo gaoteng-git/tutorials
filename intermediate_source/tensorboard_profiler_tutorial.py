@@ -137,24 +137,27 @@ with torch.profiler.profile(
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 # This requires the latest versions of PyTorch tensorboard profiler.
-
-"""
-   pip install torch_tb_profiler
-"""
+#
+# ::
+#
+#     pip install torch_tb_profiler
+#
 
 ######################################################################
 # Launch the tensorboard profiler.
-
-"""
-   tensorboard --logdir=./log
-"""
+#
+# ::
+#
+#     tensorboard --logdir=./log
+#
 
 ######################################################################
 # Open the tensorboard profile URL in Google Chrome browser or Microsoft Edge browser.
-
-"""
-   http://localhost:6006/#torch_profiler
-"""
+#
+# ::
+#
+#     http://localhost:6006/#torch_profiler
+#
 
 ######################################################################
 # The profiler’s front page is as below.
@@ -204,10 +207,11 @@ with torch.profiler.profile(
 #
 # In this example, we can set ``num_workers`` as below,
 # pass a different name such as ``"./log/resnet18_4workers"`` to tensorboard_trace_handler, and run it again.
-
-"""
-   train_loader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True, num_workers=4)
-"""
+#
+# ::
+#
+#     train_loader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True, num_workers=4)
+#
 
 ######################################################################
 # Then let’s choose the just profiled run in left ``"Runs"`` dropdown list.
