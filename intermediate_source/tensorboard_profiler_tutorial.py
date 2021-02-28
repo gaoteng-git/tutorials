@@ -139,8 +139,6 @@ with torch.profiler.profile(
 # This requires the latest versions of PyTorch tensorboard profiler.
 
 """
-::
-
    pip install torch_tb_profiler
 """
 
@@ -148,8 +146,6 @@ with torch.profiler.profile(
 # Launch the tensorboard profiler.
 
 """
-::
-
    tensorboard --logdir=./log
 """
 
@@ -157,8 +153,6 @@ with torch.profiler.profile(
 # Open the tensorboard profile URL in Google Chrome browser or Microsoft Edge browser.
 
 """
-::
-
    http://localhost:6006/#torch_profiler
 """
 
@@ -170,17 +164,17 @@ with torch.profiler.profile(
 #
 # This overview shows a high-level summary of performance.
 #
-# The "Step Time Breakdown" break the time spent on each step into multiple categories.
-# In this example, you can see the “DataLoader” costs a lot of time.
+# The ``"Step Time Breakdown"`` break the time spent on each step into multiple categories.
+# In this example, you can see the ``"DataLoader"`` costs a lot of time.
 #
-# The bottom "Performance Recommendation" leverages the profiling result
+# The bottom ``"Performance Recommendation"`` leverages the profiling result
 # to automatically highlight likely bottlenecks,
 # and gives you actionable optimization suggestions.
 #
-# You can change the view page in left ``Views`` dropdown list.
+# You can change the view page in left ``"Views"`` dropdown list.
 #
 # .. image:: ../../_static/img/profiler_views_list.png
-#    :scale: 1 %
+#    :alt:
 #
 # The operator view displays the performance of every PyTorch operator
 # that is executed either on the host or device.
@@ -195,7 +189,7 @@ with torch.profiler.profile(
 #
 # You can move the graph and zoom in/out with the help of right side toolbar.
 #
-# In this example, we can see the event prefixed with “enumerate(DataLoader)” costs a lot of time.
+# In this example, we can see the event prefixed with ``"enumerate(DataLoader)"`` costs a lot of time.
 # And during most of this period, the GPU is idle.
 # Because this function is loading data and transforming data on host side,
 # during which the GPU resource is wasted.
@@ -209,16 +203,14 @@ with torch.profiler.profile(
 # User could enable multi-process data loading by setting the parameter ‘num_workers’.Here is more details.
 #
 # In this example, we can set ``num_workers`` as below,
-# pass a different name such as ``./log/resnet18_4workers`` to tensorboard_trace_handler, and run it again.
+# pass a different name such as ``"./log/resnet18_4workers"`` to tensorboard_trace_handler, and run it again.
 
 """
-
-::
    train_loader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True, num_workers=4)
 """
 
 ######################################################################
-# Then let’s choose the just profiled run in left “Runs” dropdown list.
+# Then let’s choose the just profiled run in left ``"Runs"`` dropdown list.
 #
 # .. image:: ../../_static/img/profiler_overview2.png
 #    :scale: 25 %
@@ -229,7 +221,7 @@ with torch.profiler.profile(
 # .. image:: ../../_static/img/profiler_trace_view2.png
 #    :scale: 25 %
 #
-# From the above view, we can find the event of “enumerate(DataLoader)” is shortened,
+# From the above view, we can find the event of ``"enumerate(DataLoader)"`` is shortened,
 # and the GPU utilization is increased.
 
 ######################################################################
