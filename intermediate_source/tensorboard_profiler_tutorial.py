@@ -203,7 +203,8 @@ with torch.profiler.profile(
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 # The PyTorch DataLoader uses single process by default.
-# User could enable multi-process data loading by setting the parameter ‘num_workers’.Here is more details.
+# User could enable multi-process data loading by setting the parameter ‘num_workers’.
+# `Here <https://pytorch.org/docs/stable/data.html#single-and-multi-process-data-loading>`_ is more details.
 #
 # In this example, we can set ``num_workers`` as below,
 # pass a different name such as ``"./log/resnet18_4workers"`` to tensorboard_trace_handler, and run it again.
