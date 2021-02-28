@@ -138,17 +138,29 @@ with torch.profiler.profile(
 #
 # This requires the latest versions of PyTorch tensorboard profiler.
 
-# pip install torch_tb_profiler
+"""
+::
+
+   pip install torch_tb_profiler
+"""
 
 ######################################################################
 # Launch the tensorboard profiler.
 
-# tensorboard --logdir=./log
+"""
+::
+
+   tensorboard --logdir=./log
+"""
 
 ######################################################################
 # Open the tensorboard profile URL in Google Chrome browser or Microsoft Edge browser.
 
-# http://localhost:6006/#torch_profiler
+"""
+::
+
+   http://localhost:6006/#torch_profiler
+"""
 
 ######################################################################
 # The profiler’s front page is as below.
@@ -158,17 +170,17 @@ with torch.profiler.profile(
 #
 # This overview shows a high-level summary of performance.
 #
-# The ``Step Time Breakdown`` break the time spent on each step into multiple categories.
+# The "Step Time Breakdown" break the time spent on each step into multiple categories.
 # In this example, you can see the “DataLoader” costs a lot of time.
 #
-# The bottom ``Performance Recommendation`` leverages the profiling result
+# The bottom "Performance Recommendation" leverages the profiling result
 # to automatically highlight likely bottlenecks,
 # and gives you actionable optimization suggestions.
 #
 # You can change the view page in left ``Views`` dropdown list.
 #
 # .. image:: ../../_static/img/profiler_views_list.png
-#    :scale: 25 %
+#    :scale: 1 %
 #
 # The operator view displays the performance of every PyTorch operator
 # that is executed either on the host or device.
@@ -199,7 +211,11 @@ with torch.profiler.profile(
 # In this example, we can set ``num_workers`` as below,
 # pass a different name such as ``./log/resnet18_4workers`` to tensorboard_trace_handler, and run it again.
 
-# train_loader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True, num_workers=4)
+"""
+
+::
+   train_loader = torch.utils.data.DataLoader(train_set, batch_size=32, shuffle=True, num_workers=4)
+"""
 
 ######################################################################
 # Then let’s choose the just profiled run in left “Runs” dropdown list.
@@ -225,4 +241,3 @@ with torch.profiler.profile(
 # -  `Pytorch Tensorboard Profiler github <https://github.com/pytorch/kineto/tree/master/tb_plugin>`_
 # -  `Pytorch Profiler <https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html>`_
 # -  `Profiling Your Pytorch Module <https://pytorch.org/tutorials/beginner/profiler.html>`_ tutorial
-#
