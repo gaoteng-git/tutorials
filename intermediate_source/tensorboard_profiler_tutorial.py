@@ -1,7 +1,7 @@
 """
-PyTorch Tensorboard Profiler
+PyTorch TensorBoard Profiler
 ====================================
-This recipe explains how to use PyTorch tensorboard profiler
+This recipe explains how to use PyTorch TensorBoard profiler
 and measure the performance bottleneck of the model.
 
 .. note::
@@ -11,8 +11,9 @@ and measure the performance bottleneck of the model.
 Introduction
 ------------
 PyTorch 1.8 includes an updated profiler API that could help user
-record both the operators running on host side and the CUDA kernels running on GPU side.
-It also includes a plugin that could show the performance bottleneck in visualization UI.
+record both the operators running on CPU side and the CUDA kernels running on GPU side.
+Given the profiling information,
+we can use this TensorBoard Plugin to visualize it and analyze the performance bottleneck.
 
 In this recipe, we will use a simple Resnet model to demonstrate how to
 use profiler to analyze model performance.
@@ -36,7 +37,7 @@ To install ``torch`` and ``torchvision`` use the following command:
 # 1. Prepare the data and model
 # 2. Use profiler to record execution events
 # 3. Run the profiler
-# 4. Use tensorboard to view and analyze performance
+# 4. Use TensorBoard to view and analyze performance
 # 5. Improve performance with the help of profiler
 #
 # 1. Prepare the data and model
@@ -96,7 +97,7 @@ def train(data):
 # some of the most useful are:
 #
 # - ``schedule`` - callable that takes step (int) as a single parameter
-#   and specifies the profiler action to perform at each step;
+#   and returns the profiler action to perform at each step;
 #   In this example with wait=1, warmup=1, active=5,
 #   profiler will skip the first step/iteration,
 #   start warming up on the second,
@@ -109,7 +110,7 @@ def train(data):
 #   The ``active`` is steps to record during a cycle.
 # - ``on_trace_ready`` - callable that is called at the end of each cycle;
 #   In this example we use ``torch.profiler.tensorboard_trace_handler`` to generate result files for TensorBoard.
-#   After profiling, result files can be generated in the ``./log`` directory,
+#   After profiling, result files can be generated in the ``./log/resnet18`` directory,
 #   which could be specified to open and analyzed in TensorBoard.
 # - ``record_shapes`` - whether to record shapes of the operator inputs.
 
@@ -133,10 +134,10 @@ with torch.profiler.profile(
 
 
 ######################################################################
-# 4. Use tensorboard to view and analyze performance
+# 4. Use TensorBoard to view and analyze performance
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-# This requires the latest versions of PyTorch tensorboard profiler.
+# This requires the latest versions of PyTorch TensorBoard profiler.
 #
 # ::
 #
@@ -144,7 +145,7 @@ with torch.profiler.profile(
 #
 
 ######################################################################
-# Launch the tensorboard profiler.
+# Launch the TensorBoard profiler.
 #
 # ::
 #
@@ -152,7 +153,7 @@ with torch.profiler.profile(
 #
 
 ######################################################################
-# Open the tensorboard profile URL in Google Chrome browser or Microsoft Edge browser.
+# Open the TensorBoard profile URL in Google Chrome browser or Microsoft Edge browser.
 #
 # ::
 #
@@ -235,6 +236,6 @@ with torch.profiler.profile(
 #
 # Take a look at the following recipes/tutorials to continue your learning:
 #
-# -  `Pytorch Tensorboard Profiler github <https://github.com/pytorch/kineto/tree/master/tb_plugin>`_
+# -  `Pytorch TensorBoard Profiler github <https://github.com/pytorch/kineto/tree/master/tb_plugin>`_
 # -  `Pytorch Profiler <https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html>`_
 # -  `Profiling Your Pytorch Module <https://pytorch.org/tutorials/beginner/profiler.html>`_ tutorial
