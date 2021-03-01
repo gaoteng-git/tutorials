@@ -103,13 +103,13 @@ def train(data):
 #   record the following five iterations,
 #   after which the trace will become available and on_trace_ready (when set) is called;
 #   The cycle repeats starting with the next step until the loop exits.
-#   The ‘wait’ could enable only profiling several iterations during the cycle.
-#   The ‘warmup’ could remove the profiling self-overhead,
+#   The ``wait`` could enable only profiling several iterations during the cycle.
+#   The ``warmup`` could remove the profiling self-overhead,
 #   which is high and brings skew to the profiling result.
-#   The ‘active’ is steps to record during a cycle.
+#   The ``active`` is steps to record during a cycle.
 # - ``on_trace_ready`` - callable that is called at the end of each cycle;
-#   In this example we use `torch.profiler.tensorboard_trace_handler` to generate result files for TensorBoard.
-#   After profiling, result files can be generated in the ‘./log’ directory,
+#   In this example we use ``torch.profiler.tensorboard_trace_handler`` to generate result files for TensorBoard.
+#   After profiling, result files can be generated in the ``./log`` directory,
 #   which could be specified to open and analyzed in TensorBoard.
 # - ``record_shapes`` - whether to record shapes of the operator inputs.
 
@@ -129,7 +129,7 @@ with torch.profiler.profile(
 # 3. Run the profiler
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-# Run the above code. The profiling result will be saved under ‘./log’ directory.
+# Run the above code. The profiling result will be saved under ``./log`` directory.
 
 
 ######################################################################
@@ -168,7 +168,7 @@ with torch.profiler.profile(
 # This overview shows a high-level summary of performance.
 #
 # The "Step Time Breakdown" break the time spent on each step into multiple categories.
-# In this example, you can see the ``"DataLoader"`` costs a lot of time.
+# In this example, you can see the ``DataLoader`` costs a lot of time.
 #
 # The bottom "Performance Recommendation" leverages the profiling result
 # to automatically highlight likely bottlenecks,
@@ -192,7 +192,7 @@ with torch.profiler.profile(
 #
 # You can move the graph and zoom in/out with the help of right side toolbar.
 #
-# In this example, we can see the event prefixed with ``"enumerate(DataLoader)"`` costs a lot of time.
+# In this example, we can see the event prefixed with ``enumerate(DataLoader)`` costs a lot of time.
 # And during most of this period, the GPU is idle.
 # Because this function is loading data and transforming data on host side,
 # during which the GPU resource is wasted.
@@ -203,11 +203,11 @@ with torch.profiler.profile(
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
 # The PyTorch DataLoader uses single process by default.
-# User could enable multi-process data loading by setting the parameter ‘num_workers’.
+# User could enable multi-process data loading by setting the parameter ``num_workers``.
 # `Here <https://pytorch.org/docs/stable/data.html#single-and-multi-process-data-loading>`_ is more details.
 #
 # In this example, we can set ``num_workers`` as below,
-# pass a different name such as ``"./log/resnet18_4workers"`` to tensorboard_trace_handler, and run it again.
+# pass a different name such as ``./log/resnet18_4workers`` to tensorboard_trace_handler, and run it again.
 #
 # ::
 #
@@ -226,7 +226,7 @@ with torch.profiler.profile(
 # .. image:: ../../_static/img/profiler_trace_view2.png
 #    :scale: 25 %
 #
-# From the above view, we can find the event of ``"enumerate(DataLoader)"`` is shortened,
+# From the above view, we can find the event of ``enumerate(DataLoader)`` is shortened,
 # and the GPU utilization is increased.
 
 ######################################################################
