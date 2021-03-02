@@ -138,7 +138,7 @@ with torch.profiler.profile(
 # 4. Use TensorBoard to view and analyze performance
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #
-# This requires the latest versions of PyTorch TensorBoard profiler.
+# This requires the latest versions of PyTorch TensorBoard Profiler.
 #
 # ::
 #
@@ -146,7 +146,7 @@ with torch.profiler.profile(
 #
 
 ######################################################################
-# Launch the TensorBoard profiler.
+# Launch the TensorBoard Profiler.
 #
 # ::
 #
