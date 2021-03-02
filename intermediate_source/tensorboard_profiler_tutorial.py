@@ -104,10 +104,11 @@ def train(data):
 #   record the following five iterations,
 #   after which the trace will become available and on_trace_ready (when set) is called;
 #   The cycle repeats starting with the next step until the loop exits.
-#   The ``wait`` could enable only profiling several iterations during the cycle.
-#   The ``warmup`` could remove the profiling self-overhead,
-#   which is high and brings skew to the profiling result.
-#   The ``active`` is steps to record during a cycle.
+#   During ``wait`` steps, the profiler does not work.
+#   During ``warmup`` steps, the profiler starts profiling as warmup but does not record any events.
+#   This is for reducing the profiling overhead.
+#   The overhead at the beginning of profiling is high and easy to bring skew to the profiling result.
+#   During ``active`` steps, the profiler works and record events.
 # - ``on_trace_ready`` - callable that is called at the end of each cycle;
 #   In this example we use ``torch.profiler.tensorboard_trace_handler`` to generate result files for TensorBoard.
 #   After profiling, result files can be generated in the ``./log/resnet18`` directory,
