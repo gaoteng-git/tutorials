@@ -1,7 +1,7 @@
 """
 PyTorch TensorBoard Profiler
 ====================================
-This recipe explains how to use PyTorch TensorBoard profiler
+This recipe explains how to use PyTorch TensorBoard Profiler
 and measure the performance bottleneck of the model.
 
 .. note::
